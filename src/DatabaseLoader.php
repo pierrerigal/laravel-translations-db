@@ -52,8 +52,9 @@ class DatabaseLoader implements LoaderInterface {
      */
     public function addTranslation($locale, $group, $key)
     {
-        if(!\Config::get('app.debug') || \Config::get('translation-db.minimal') || !\Config::get('translation-db.force_activation')) return;
-
+        if(!\Config::get('translation-db.force_activation')){
+            if(!\Config::get('app.debug') || \Config::get('translation-db.minimal')) return;
+        }
         // Extract the real key from the translation.
         if (preg_match("/^{$group}\.(.*?)$/sm", $key, $match)) {
             $name = $match[1];
