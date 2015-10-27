@@ -34,4 +34,12 @@ return [
      * happening.
      */
     'minimal' => false,
+
+
+    /**
+    * - Force transalation-db to be active even if env is not local
+    * This can be used to give access to translation webinterface in 
+    * production 
+    */
+    'force_activation' => false,
 ];
